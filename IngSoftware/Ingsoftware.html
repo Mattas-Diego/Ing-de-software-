@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MasterBikes - Fábrica de Bicicletas</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      color: #000000;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+    }
+    h1 {
+      color: #00BFFF;
+      text-align: center;
+    }
+    .card-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .card {
+      flex-basis: calc(33.33% - 20px);
+      border: 1px solid #00BFFF;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px;
+    }
+    .button-container {
+      text-align: center;
+    }
+    .button-container button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: darkgreen;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 5px;
+    }
+    .modal {
+      display: none;
+      border: 1px solid #00BFFF;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 20px;
+      background-color: #FFFFFF;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .modal-close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #FF0000;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>MasterBikes - Fábrica de Bicicletas</h1>
+    
+    <div class="card-container">
+      <div class="card">
+        <img src="img/fabrica-bicis.jpg" alt="Bicicleta 1" width="100%">
+        <p>Compra o fabrica tu bicicleta aquí en MasterBikes.</p>
+        <div class="button-container">
+          <button onclick="showSuccessModal()">Comprar</button>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="img/decathlon-kallang-620.jpg" alt="Bicicleta 2" width="103%">
+        <p>Si quieres arrendar tu bicicleta puedes hacerlo aquí.</p>
+        <div class="button-container">
+          <button onclick="showReservationModal()">Arrendar</button>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="img/bicycle-factory-assembly-line-wheel-2741875.jpg" alt="Bicicleta 3" width="100%">
+        <p>Si quieres arreglar tu bicicleta puedes hacerlo aquí y además viendo el estado de ella.</p>
+        <div class="button-container">
+        <button onclick="showRepairModal()">Ver Estado de Bicicleta</button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="successModal" class="modal">
+      <button class="modal-close-button" onclick="hideModal('successModal')">  X  </button>
+      <p>Su compra ha sido exitosa. ¡Gracias por su compra!</p>
+    </div>
+    
+    <div id="reservationModal" class="modal">
+      <button class="modal-close-button" onclick="hideModal('reservationModal')">  X  </button>
+      <p>Su bicicleta está reservada para usted. Puede acercarse al establecimiento a retirarla.</p>
+    </div>
+    
+    <div id="repairModal" class="modal">
+      <button class="modal-close-button" onclick="hideModal('repairModal')">  X  </button>
+      <p>Su bicicleta está siendo arreglada... La información se estará actualizando.</p>
+    </div>
+  </div>
+
+  <script>
+    function showSuccessModal() {
+      document.getElementById("successModal").style.display = "block";
+    }
+
+    function showReservationModal() {
+      document.getElementById("reservationModal").style.display = "block";
+    }
+
+    function showRepairModal() {
+      document.getElementById("repairModal").style.display = "block";
+    }
+
+    function hideModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
+    }
+  </script>
+</body>
+</html>
